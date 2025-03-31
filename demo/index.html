@@ -21,6 +21,7 @@
 </kanban-board>
 
 <script>
+
     document.addEventListener('card-moved', e => {
         const { column, card } = e.detail;
         const colTitle = column.getAttribute('title');
@@ -28,5 +29,7 @@
         console.log(`📦 Card ${id} movido para coluna "${colTitle}"`);
     });
 </script>
+
+<script type="module" src="main.js"></script>
 </body>
 </html>

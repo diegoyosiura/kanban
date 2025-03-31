@@ -1,14 +1,13 @@
 # 🧱 Kanban Web Component
 
+Um componente **Kanban leve, modular e acessível**, desenvolvido em **TypeScript + SCSS** com **Web Components (Shadow DOM)**, sem frameworks — compatível com qualquer aplicação moderna, incluindo **Vue 3**, **React** ou HTML puro.
+
+> Licenciado sob [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/), pronto para uso comercial com liberdade e segurança.
+
 ![Dev Stage](https://img.shields.io/badge/status-in%20development-orange)
 ![Build](https://img.shields.io/github/actions/workflow/status/diegoyosiura/kanban/build.yml?label=build&logo=github)
 ![Coverage](https://img.shields.io/codecov/c/github/diegoyosiura/kanban?logo=codecov)
 ![Version](https://img.shields.io/github/package-json/v/diegoyosiura/kanban?label=version&logo=npm)
-
-
-Um componente **Kanban leve, modular e acessível**, desenvolvido em **TypeScript + SCSS** com **Web Components (Shadow DOM)**, sem frameworks — compatível com qualquer aplicação moderna, incluindo **Vue 3**, **React** ou HTML puro.
-
-> Licenciado sob [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/), pronto para uso comercial com liberdade e segurança.
 
 ---
 
@@ -20,6 +19,7 @@ Um componente **Kanban leve, modular e acessível**, desenvolvido em **TypeScrip
 - ✅ Ordenação de cartões por posição
 - ✅ Acessibilidade com teclado e ARIA
 - ✅ Wrapper Vue 3 incluído (`vue-wrapper/`)
+- ✅ Uso programático com `new KanbanBoard()`
 
 ---
 
@@ -81,7 +81,7 @@ function onCardMoved({ cardId, columnId }) {
 
 ```bash
 npm run dev         # Desenvolvimento do Web Component
-npm run build       # Gera dist/ (kanban.es.js + kanban.css)
+npm run build       # Gera dist/ (kanban.es.js + kanban.css + kanban.umd.js)
 npm run preview     # Servidor local para HTML puro
 ```
 
@@ -95,12 +95,29 @@ npm run preview:vue # Preview Vue App
 
 ---
 
+## 🚀 Uso programático sem import
+
+```html
+<script src="dist/kanban.umd.js"></script>
+<script>
+  const board = new KanbanBoard();
+  document.body.appendChild(board);
+
+  board.addColumn({ id: 'todo', title: 'To Do' });
+  board.addCard('todo', { id: '1', title: 'Tarefa Exemplo' });
+</script>
+```
+
+> `KanbanBoard` é registrado como `<kanban-board>` e também disponível como classe global em `window.KanbanBoard`
+
+---
+
 ## 📦 Estrutura de pastas
 
 ```
 kanban/
 ├── src/              # Código-fonte Web Component (TS/SCSS)
-├── dist/             # Build final
+├── dist/             # Build final (ES + UMD)
 ├── demo/             # HTML puro
 ├── vue-wrapper/      # Wrapper Vue 3 e App de exemplo
 ├── package.json
@@ -121,3 +138,4 @@ Você pode usar, modificar e distribuir este componente inclusive em projetos co
 ---
 
 Feito com ❤️ por [Diego Yosiura](https://github.com/diegoyosiura)
+
