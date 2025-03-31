@@ -1,5 +1,11 @@
 # 🧱 Kanban Web Component
 
+![Dev Stage](https://img.shields.io/badge/status-in%20development-orange)
+![Build](https://img.shields.io/github/actions/workflow/status/diegoyosiura/kanban/build.yml?label=build&logo=github)
+![Coverage](https://img.shields.io/codecov/c/github/diegoyosiura/kanban?logo=codecov)
+![Version](https://img.shields.io/github/package-json/v/diegoyosiura/kanban?label=version&logo=npm)
+
+
 Um componente **Kanban leve, modular e acessível**, desenvolvido em **TypeScript + SCSS** com **Web Components (Shadow DOM)**, sem frameworks — compatível com qualquer aplicação moderna, incluindo **Vue 3**, **React** ou HTML puro.
 
 > Licenciado sob [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/), pronto para uso comercial com liberdade e segurança.
