@@ -1,0 +1,25 @@
+# Node
+node_modules/
+*.log
+*.tsbuildinfo
+
+# Build output
+dist/
+.vite/
+.cache/
+
+# Vite output
+vue-wrapper/dist/
+vue-wrapper/.vite/
+
+# IDEs
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*

@@ -1,0 +1,2 @@
+<!-- @license MPL-2.0-->
+<!-- Copyright (c) 2025 Diego Yosiura-->
