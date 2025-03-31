@@ -7,7 +7,7 @@ import '../scss/kanban.scss';
 import './column';
 import './card';
 
-export class KanbanBoard extends HTMLElement {
+class KanbanBoard extends HTMLElement {
     shadow: ShadowRoot;
 
     constructor() {
@@ -33,6 +33,47 @@ export class KanbanBoard extends HTMLElement {
       <slot></slot>
     `;
     }
+
+    addColumn(columnData: { id: string; title: string }) {
+        const col = document.createElement('kanban-column');
+        col.setAttribute('title', columnData.title);
+        col.setAttribute('data-id', columnData.id);
+        this.appendChild(col);
+        return col;
+    }
+
+    addCard(columnId: string, cardData: { id: string; title: string }) {
+        const col = this.querySelector(`kanban-column[data-id="${columnId}"]`);
+        if (!col) {
+            console.warn(`Column "${columnId}" not found.`);
+            return;
+        }
+
+        const card = document.createElement('kanban-card');
+        card.setAttribute('title', cardData.title);
+        card.setAttribute('data-id', cardData.id);
+        col.appendChild(card);
+        return card;
+    }
+
+    getColumns(): HTMLElement[] {
+        return Array.from(this.querySelectorAll('kanban-column'));
+    }
+
+    getCards(columnId: string): HTMLElement[] {
+        const col = this.querySelector(`kanban-column[data-id="${columnId}"]`);
+        return col ? Array.from(col.querySelectorAll('kanban-card')) : [];
+    }
+
 }
 
-customElements.define('kanban-board', KanbanBoard);
+if (!customElements.get('kanban-board')) {
+    customElements.define('kanban-board', KanbanBoard);
+}
+export { KanbanBoard };
+// Expõe globalmente para uso programático
+// @ts-ignore
+if (typeof window !== 'undefined') {
+    // @ts-ignore
+    window.KanbanBoard = KanbanBoard;
+}
