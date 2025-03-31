@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Kanban Demo</title>
+    <script type="module" src="../dist/kanban.es.js"></script>
+    <link rel="stylesheet" href="../dist/kanban.css" />
+</head>
+<body>
+<kanban-board>
+    <kanban-column title="To Do">
+        <kanban-card title="Fazer login"></kanban-card>
+        <kanban-card title="Criar componente Kanban"></kanban-card>
+    </kanban-column>
+    <kanban-column title="Doing">
+        <kanban-card title="Estudar Web Components"></kanban-card>
+    </kanban-column>
+    <kanban-column title="Done">
+        <kanban-card title="Bla"></kanban-card>
+    </kanban-column>
+</kanban-board>
+
+<script>
+    document.addEventListener('card-moved', e => {
+        const { column, card } = e.detail;
+        const colTitle = column.getAttribute('title');
+        const id = column.getAttribute('id');
+        console.log(`📦 Card ${id} movido para coluna "${colTitle}"`);
+    });
+</script>
+</body>
+</html>

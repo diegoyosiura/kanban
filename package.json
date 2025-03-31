@@ -1,0 +1,21 @@
+{
+  "name": "kanban",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev:vue": "vite --config vue-wrapper/vite.config.ts",
+    "build:vue": "vite build --config vue-wrapper/vite.config.ts",
+    "preview:vue": "vite preview --config vue-wrapper/vite.config.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "sass": "^1.69.0",
+    "typescript": "^5.3.3",
+    "vite": "^6.2.4",
+    "vite-plugin-dts": "^4.5.3",
+    "vue": "^3.4.0"
+  }
+}
